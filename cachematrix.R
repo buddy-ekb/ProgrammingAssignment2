@@ -27,10 +27,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 ## Checks if a matrix from makeCacheMatrix was already solved;
 ## if it was then returns a cached version
-## otherwise tries to solve a matrix, store the result in the cache
+## otherwise tries to solve a matrix, stores the result in the cache
 ## and then returns it
 
-cacheSolve <- function(x) {
+cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
 
         inverse <- x$getinverse()
@@ -39,7 +39,7 @@ cacheSolve <- function(x) {
                 return(inverse)
         }
         matrix <- x$get()
-        inverse <- solve(matrix)
+        inverse <- solve(matrix, ...)
         x$setinverse(inverse)
         inverse
 }
